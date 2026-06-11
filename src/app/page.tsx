@@ -1,12 +1,69 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { Building2, Trash2, FileText, TrendingUp, ArrowRight, Recycle, Factory, HeartPulse, HardHat, Landmark, Truck, Package } from "lucide-react";
+import { Building2, Trash2, FileText, TrendingUp, ArrowRight, Recycle, Factory, HeartPulse, HardHat, AlertTriangle, Package, Truck } from "lucide-react";
 
 const stats = [
   { icon: Building2, value: "100+", label: "Байгууллага" },
   { icon: Trash2, value: "1,000+", label: "Бүртгэл" },
   { icon: FileText, value: "50+", label: "Тайлан" },
+];
+
+const wasteTypes = [
+  { 
+    icon: Package, 
+    name: "Ахуйн хог", 
+    desc: "Гэр ахуйн өдөр тутмын хог хаягдал",
+    color: "bg-blue-50",
+    iconColor: "text-blue-600",
+    borderColor: "border-blue-200",
+    hoverColor: "hover:border-blue-400"
+  },
+  { 
+    icon: Factory, 
+    name: "Үйлдвэрлэлийн хог", 
+    desc: "Үйлдвэр, цехээс гарах хог",
+    color: "bg-orange-50",
+    iconColor: "text-orange-600",
+    borderColor: "border-orange-200",
+    hoverColor: "hover:border-orange-400"
+  },
+  { 
+    icon: AlertTriangle, 
+    name: "Аюултай хог", 
+    desc: "Химийн бодис, аюултай хог хаягдал",
+    color: "bg-red-50",
+    iconColor: "text-red-600",
+    borderColor: "border-red-200",
+    hoverColor: "hover:border-red-400"
+  },
+  { 
+    icon: HeartPulse, 
+    name: "Эмнэлгийн хог", 
+    desc: "Эмнэлэгээс гарах хог хаягдал",
+    color: "bg-pink-50",
+    iconColor: "text-pink-600",
+    borderColor: "border-pink-200",
+    hoverColor: "hover:border-pink-400"
+  },
+  { 
+    icon: HardHat, 
+    name: "Барилгын хог", 
+    desc: "Барилга, буулгалтын хог",
+    color: "bg-yellow-50",
+    iconColor: "text-yellow-600",
+    borderColor: "border-yellow-200",
+    hoverColor: "hover:border-yellow-400"
+  },
+  { 
+    icon: Recycle, 
+    name: "Дахин боловсруулах", 
+    desc: "Дахин боловсруулах боломжтой хог",
+    color: "bg-emerald-50",
+    iconColor: "text-emerald-600",
+    borderColor: "border-emerald-200",
+    hoverColor: "hover:border-emerald-400"
+  },
 ];
 
 const solutions = [
@@ -84,14 +141,50 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Waste Types Selection - NEW SECTION */}
+        <section className="bg-gray-50 py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                Та ямар хог хаях гэж байна?
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Хог хаягдлын төрлөө сонгоод шууд бүртгэлээ хийнэ үү
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {wasteTypes.map((waste) => (
+                <Link
+                  key={waste.name}
+                  href="/waste-registration"
+                  className={`${waste.color} rounded-xl p-8 border-2 ${waste.borderColor} ${waste.hoverColor} hover:shadow-lg transition-all group cursor-pointer`}
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className={`h-20 w-20 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                      <waste.icon className={`h-10 w-10 ${waste.iconColor}`} />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{waste.name}</h3>
+                    <p className="text-gray-600 text-sm mb-4">{waste.desc}</p>
+                    <div className="flex items-center text-sm font-medium text-gray-700 group-hover:text-gray-900">
+                      Бүртгэх
+                      <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Stats Section */}
-        <section className="bg-gray-50 py-16">
+        <section className="bg-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100"
+                  className="bg-gray-50 rounded-xl p-8 text-center shadow-sm border border-gray-100"
                 >
                   <stat.icon className="h-10 w-10 text-emerald-600 mx-auto mb-4" />
                   <div className="text-4xl font-bold text-emerald-600 mb-2">{stat.value}</div>
@@ -103,7 +196,7 @@ export default function Home() {
         </section>
 
         {/* Solutions Section */}
-        <section className="bg-white py-20">
+        <section className="bg-gray-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -118,7 +211,7 @@ export default function Home() {
               {solutions.map((solution) => (
                 <div
                   key={solution.title}
-                  className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow border border-gray-100"
+                  className="bg-white rounded-xl p-8 hover:shadow-lg transition-shadow border border-gray-100"
                 >
                   <solution.icon className="h-12 w-12 text-emerald-600 mb-6" />
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{solution.title}</h3>
@@ -130,7 +223,7 @@ export default function Home() {
         </section>
 
         {/* Industries Section */}
-        <section className="bg-gray-50 py-20">
+        <section className="bg-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -145,7 +238,7 @@ export default function Home() {
               {industries.map((industry) => (
                 <div
                   key={industry.name}
-                  className="bg-white rounded-xl p-6 text-center hover:shadow-md transition-shadow border border-gray-100"
+                  className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-md transition-shadow border border-gray-100"
                 >
                   <industry.icon className="h-10 w-10 text-emerald-600 mx-auto mb-4" />
                   <div className="text-sm font-medium text-gray-900">{industry.name}</div>
@@ -156,7 +249,7 @@ export default function Home() {
         </section>
 
         {/* Testimonials */}
-        <section className="bg-white py-20">
+        <section className="bg-gray-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -168,7 +261,7 @@ export default function Home() {
               {testimonials.map((testimonial) => (
                 <div
                   key={testimonial.author}
-                  className="bg-gray-50 rounded-xl p-8 border border-gray-100"
+                  className="bg-white rounded-xl p-8 border border-gray-100"
                 >
                   <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
                   <div>
