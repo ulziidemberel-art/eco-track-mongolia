@@ -112,9 +112,103 @@ export default function Home() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="bg-white py-20 lg:py-32">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hero Section with Animated Background */}
+        <section className="relative bg-white py-20 lg:py-32 overflow-hidden">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Floating Buildings - Left Side */}
+            <div className="absolute left-10 top-20 opacity-20 animate-float-slow">
+              <svg width="120" height="200" viewBox="0 0 120 200" fill="none">
+                <rect x="20" y="80" width="40" height="120" fill="#10B981" rx="4"/>
+                <rect x="25" y="90" width="12" height="12" fill="white" rx="2"/>
+                <rect x="43" y="90" width="12" height="12" fill="white" rx="2"/>
+                <rect x="25" y="110" width="12" height="12" fill="white" rx="2"/>
+                <rect x="43" y="110" width="12" height="12" fill="white" rx="2"/>
+                <rect x="25" y="130" width="12" height="12" fill="white" rx="2"/>
+                <rect x="43" y="130" width="12" height="12" fill="white" rx="2"/>
+                <rect x="25" y="150" width="12" height="12" fill="white" rx="2"/>
+                <rect x="43" y="150" width="12" height="12" fill="white" rx="2"/>
+                <rect x="20" y="70" width="40" height="10" fill="#059669" rx="2"/>
+              </svg>
+            </div>
+
+            {/* Factory Building */}
+            <div className="absolute right-20 top-32 opacity-15 animate-float-medium">
+              <svg width="150" height="160" viewBox="0 0 150 160" fill="none">
+                <rect x="30" y="60" width="80" height="100" fill="#059669" rx="4"/>
+                <rect x="40" y="20" width="15" height="50" fill="#6B7280" rx="2"/>
+                <rect x="65" y="35" width="15" height="35" fill="#6B7280" rx="2"/>
+                <rect x="90" y="25" width="15" height="45" fill="#6B7280" rx="2"/>
+                <rect x="45" y="75" width="20" height="15" fill="white" rx="2"/>
+                <rect x="75" y="75" width="20" height="15" fill="white" rx="2"/>
+                <rect x="45" y="100" width="20" height="15" fill="white" rx="2"/>
+                <rect x="75" y="100" width="20" height="15" fill="white" rx="2"/>
+                <circle cx="95" cy="40" r="8" fill="#EF4444" opacity="0.5"/>
+              </svg>
+            </div>
+
+            {/* Recycling Symbol */}
+            <div className="absolute left-1/4 bottom-20 opacity-10 animate-float-fast">
+              <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                <path d="M50 15 L60 35 L40 35 Z" fill="#10B981"/>
+                <path d="M70 65 L50 75 L60 55 Z" fill="#10B981"/>
+                <path d="M30 65 L40 75 L20 55 Z" fill="#10B981"/>
+                <path d="M50 45 L55 55 L45 55 Z" fill="white"/>
+              </svg>
+            </div>
+
+            {/* House with Tree */}
+            <div className="absolute right-1/3 bottom-32 opacity-15 animate-float-slow">
+              <svg width="140" height="120" viewBox="0 0 140 120" fill="none">
+                <rect x="50" y="50" width="60" height="50" fill="#34D399" rx="4"/>
+                <polygon points="80,20 40,55 120,55" fill="#059669"/>
+                <rect x="65" y="65" width="15" height="20" fill="white" rx="2"/>
+                <rect x="90" y="65" width="15" height="15" fill="white" rx="2"/>
+                <circle cx="25" cy="55" r="20" fill="#10B981" opacity="0.6"/>
+                <circle cx="20" cy="45" r="15" fill="#34D399" opacity="0.5"/>
+                <rect x="22" y="65" width="6" height="25" fill="#8B5CF6" rx="2"/>
+              </svg>
+            </div>
+
+            {/* Hospital */}
+            <div className="absolute left-1/3 top-40 opacity-10 animate-float-medium">
+              <svg width="100" height="120" viewBox="0 0 100 120" fill="none">
+                <rect x="20" y="40" width="60" height="70" fill="#EC4899" rx="4"/>
+                <rect x="40" y="50" width="8" height="25" fill="white" rx="2"/>
+                <rect x="32" y="58" width="24" height="8" fill="white" rx="2"/>
+                <rect x="35" y="85" width="15" height="15" fill="white" rx="2"/>
+                <rect x="55" y="85" width="15" height="15" fill="white" rx="2"/>
+                <rect x="35" y="25" width="30" height="20" fill="#F472B6" rx="2"/>
+                <rect x="47" y="28" width="6" height="14" fill="white" rx="1"/>
+                <rect x="43" y="32" width="14" height="6" fill="white" rx="1"/>
+              </svg>
+            </div>
+
+            {/* Construction Crane */}
+            <div className="absolute right-10 bottom-10 opacity-10 animate-float-fast">
+              <svg width="120" height="140" viewBox="0 0 120 140" fill="none">
+                <rect x="55" y="40" width="10" height="80" fill="#F59E0B" rx="2"/>
+                <rect x="20" y="40" width="80" height="8" fill="#F59E0B" rx="2"/>
+                <rect x="25" y="20" width="5" height="25" fill="#FBBF24" rx="1"/>
+                <rect x="90" y="20" width="5" height="25" fill="#FBBF24" rx="1"/>
+                <line x1="27" y1="25" x2="27" y2="60" stroke="#1F2937" strokeWidth="2"/>
+                <line x1="92" y1="25" x2="92" y2="60" stroke="#1F2937" strokeWidth="2"/>
+                <rect x="40" y="60" width="40" height="50" fill="#D97706" rx="2"/>
+                <rect x="45" y="70" width="12" height="12" fill="white" rx="2"/>
+                <rect x="63" y="70" width="12" height="12" fill="white" rx="2"/>
+                <rect x="45" y="88" width="12" height="12" fill="white" rx="2"/>
+                <rect x="63" y="88" width="12" height="12" fill="white" rx="2"/>
+              </svg>
+            </div>
+
+            {/* Floating Particles */}
+            <div className="absolute left-1/2 top-1/4 w-3 h-3 bg-emerald-300 rounded-full opacity-30 animate-float-particle-1"></div>
+            <div className="absolute right-1/4 top-1/3 w-2 h-2 bg-emerald-400 rounded-full opacity-20 animate-float-particle-2"></div>
+            <div className="absolute left-1/4 bottom-1/4 w-4 h-4 bg-emerald-200 rounded-full opacity-25 animate-float-particle-3"></div>
+            <div className="absolute right-1/2 top-1/2 w-2 h-2 bg-emerald-300 rounded-full opacity-20 animate-float-particle-1"></div>
+          </div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
                 Хог хаягдлын бүртгэлийн систем
@@ -125,7 +219,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/company-registration"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors"
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors shadow-lg hover:shadow-xl"
                 >
                   Байгууллага бүртгэх
                   <ArrowRight className="ml-2 h-5 w-5" />
